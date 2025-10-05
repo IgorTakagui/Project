@@ -1,147 +1,94 @@
-# 🧠 Backend – API de Gerenciamento de Itens (Ex: Cardápio / Alimentos)
-
-Este diretório contém o **código-fonte do backend** da aplicação em grupo.  
-O objetivo é disponibilizar uma **API RESTful** que será consumida pelo **front-end** e por outros serviços do projeto, centralizando toda a **lógica de negócios**, **persistência de dados** e **comunicação com o banco de dados**.
+[![Tecnologias](https://skillicons.dev/icons?i=nodejs,express,typescript,prisma,sqlite,docker&theme=dark)](https://skillicons.dev)
 
 ---
 
-## 📌 Objetivo do Backend
-
-Este backend foi desenvolvido para:
-
-- ✅ Disponibilizar **rotas de API** que serão utilizadas pelo front-end da aplicação em grupo.  
-- 📡 Fazer a **ponte entre o banco de dados** (via Prisma) e a interface do usuário.  
-- ⚙️ Organizar a lógica do projeto em **camadas** (controllers, models, routes) para facilitar manutenção e colaboração em equipe.  
-- 🧰 Servir como base para expansão futura (novas rotas, autenticação, integrações externas etc.).
+## 👨‍💻 Autor: **Igor Takagui Reis**
+Disciplina: Desenvolvimento Web II – UNIFACEF  
+Instituição: Centro Universitário Municipal de Franca (UNIFACEF)
 
 ---
 
-## 🧰 Tecnologias Utilizadas
+## 🍽️ Sobre o Projeto  
+O backend é o núcleo lógico do sistema *Tri Fratelli*, responsável por gerenciar os dados do cardápio digital, como nome, preço e imagem das pizzas, além de fornecer uma **API RESTful** para integração com o frontend.
 
-- **Node.js** – Ambiente de execução JavaScript no servidor  
-- **TypeScript** – Tipagem estática e melhor manutenção do código  
-- **Express.js** – Framework minimalista para criação de APIs HTTP  
-- **Prisma** – ORM para comunicação com o banco de dados  
-- **Docker** – Arquivo `DockerFile` para containerização do serviço  
-- **npm** – Gerenciador de dependências
+Este módulo foi desenvolvido em **Node.js com TypeScript**, utilizando **Express.js** e **Prisma ORM**, conectando-se ao banco **SQLite**.  
+O projeto garante uma comunicação eficiente entre a interface (frontend) e o banco de dados, mantendo o fluxo de informações atualizado e seguro.
 
 ---
 
-## 📁 Estrutura de Pastas
+## 🎯 Contribuição Pessoal  
+Durante o desenvolvimento do backend, **Igor Takagui Reis** colaborou diretamente com **João Pedro Guinati** na integração do sistema, atuando em pontos estratégicos:
 
+- Apoio na integração entre **frontend e backend**, testando e validando as rotas da API.  
+- Auxílio na estruturação dos endpoints e testes de requisição (GET, POST e DELETE).  
+- Revisão de comunicação entre o **foodApi.ts** do front e as rotas `/api/foods` do backend.  
+- Verificação de respostas JSON, mensagens de erro e status de retorno.  
+- Contribuições no design de respostas e organização dos dados para exibição no frontend.
+
+Mesmo não sendo o principal responsável pelo backend, Igor desempenhou um papel importante garantindo que a camada de integração entre ambos funcionasse de forma fluida e padronizada.
+
+---
+
+## ⚙️ Tecnologias Utilizadas  
+- **Node.js** – Ambiente de execução do JavaScript  
+- **Express.js** – Framework para criação de rotas e APIs REST  
+- **TypeScript** – Tipagem estática para melhor controle do código  
+- **Prisma ORM** – Mapeamento objeto-relacional  
+- **SQLite** – Banco de dados leve e eficiente  
+- **Docker** – Containerização e padronização do ambiente  
+- **dotenv** – Gerenciamento de variáveis de ambiente  
+
+---
+
+## 📡 Estrutura do Projeto
 ```
 backend/
-├── .gitignore
-├── DockerFile
-├── package.json
-├── package-lock.json
-├── tsconfig.json
 ├── prisma/
-│   └── schema.prisma         # Definição do modelo de dados e conexão com DB
-└── src/
-    ├── index.ts             # Ponto de entrada da aplicação
-    ├── prismaClient.ts      # Inicialização do cliente Prisma
-    ├── controllers/
-    │   └── foodController.ts  # Lógica de manipulação de "Food"
-    ├── models/
-    │   └── food.ts            # Modelo de dados (tipagens)
-    └── routes/
-        └── foodRoutes.ts      # Definição das rotas da API
+│   ├── schema.prisma
+│   └── dev.db
+├── src/
+│   ├── routes/
+│   │   └── foodRoutes.ts
+│   ├── controllers/
+│   │   └── foodController.ts
+│   ├── services/
+│   │   └── foodService.ts
+│   └── server.ts
+├── .env
+├── Dockerfile
+├── package.json
+└── tsconfig.json
 ```
 
 ---
 
-## 🚀 Como Executar Localmente
-
-### 1. Pré-requisitos
-
-- [Node.js](https://nodejs.org/) v18+  
-- [npm](https://www.npmjs.com/)  
-- [Docker](https://www.docker.com/) (opcional, para container)
-
-### 2. Instalar Dependências
-
-No diretório `backend/`:
-
-```bash
-npm install
-```
-
-### 3. Configurar o Banco de Dados
-
-No arquivo `prisma/schema.prisma`, está definida a estrutura do banco de dados.  
-Crie ou configure sua conexão no `.env` (por exemplo):
-
-```
-DATABASE_URL="postgresql://usuario:senha@localhost:5432/meubanco?schema=public"
-```
-
-Em seguida, gere as migrações e sincronize com o banco:
-
-```bash
-npx prisma migrate dev
-```
-
-### 4. Rodar o Servidor
-
-```bash
-npm run dev
-```
-
-Ou, se usar Docker:
-
-```bash
-docker build -t backend-app .
-docker run -p 3000:3000 backend-app
-```
-
-A API ficará disponível em:  
-👉 **http://localhost:3000**
+## 🌐 Endpoints Principais
+| Método | Rota | Descrição |
+|--------|------|------------|
+| **GET** | `/api/foods` | Retorna todos os alimentos cadastrados |
+| **POST** | `/api/foods` | Cadastra um novo alimento |
+| **DELETE** | `/api/foods/:id` | Remove um alimento pelo ID |
 
 ---
 
-## 🌐 Rotas de API
+## 🚀 Testes e Integração
+Durante o processo de desenvolvimento, Igor auxiliou na **testagem via Postman e Frontend**, garantindo que os endpoints do backend respondessem corretamente e que a aplicação completa funcionasse de ponta a ponta.
 
-### `GET /food`  
-Retorna a lista de alimentos cadastrados no banco.
-
-### `POST /food`  
-Cria um novo item de alimento.  
-Exemplo de corpo da requisição:
-
-```json
-{
-  "name": "Pizza Margherita",
-  "price": 35.90
-}
-```
-
-### `PUT /food/:id`  
-Atualiza um item existente pelo ID.
-
-### `DELETE /food/:id`  
-Remove um item existente.
-
-> ⚠️ Todas as rotas estão definidas em `src/routes/foodRoutes.ts` e a lógica está em `src/controllers/foodController.ts`.
+Os testes validaram:  
+✅ Conexão com o banco via Prisma  
+✅ Comunicação entre API e Frontend  
+✅ Retorno de mensagens estruturadas em JSON  
 
 ---
 
-## 🧠 Integração com o Projeto em Grupo
-
-Este backend será **consumido pelo front-end** do projeto (ex.: aplicação web ou mobile) para:
-
-- Exibir dados dinâmicos vindos do banco de dados  
-- Criar, editar e excluir registros  
-- Garantir consistência e centralização da lógica de negócios  
-- Permitir que diferentes membros do grupo trabalhem paralelamente (ex.: equipe do front consome endpoints já criados)
-
-👉 Dessa forma, o backend serve como **camada central do sistema**, conectando o banco de dados às interfaces e garantindo que todo o fluxo de dados seja controlado e seguro.
+## 📄 Licença  
+Projeto acadêmico desenvolvido para a disciplina de **Desenvolvimento Web II – UNIFACEF (2025)**.  
+Todos os direitos reservados ao grupo *Tri Fratelli*.
 
 ---
 
-## 📌 Próximos Passos Possíveis
-
-- [ ] Implementar autenticação (ex.: JWT)  
-- [ ] Adicionar testes automatizados  
-- [ ] Criar rotas para outras entidades além de `Food`  
-- [ ] Configurar CI/CD para deploy automatizado
+### 👨‍🏫 Desenvolvido por:  
+**Igor Takagui Reis**  
+📍 *UNIFACEF – Engenharia de Software*  
+📚 *Disciplina: Desenvolvimento Web II*  
+📧 igor.takagui.reis@example.com
