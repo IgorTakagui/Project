@@ -1,143 +1,185 @@
-### 👨‍💻 Autor: **Igor Takagui Reis**  
-Disciplina: Desenvolvimento Web II – UNIFACEF  
-Instituição: Centro Universitário Municipal de Franca (UNIFACEF)
-
----
+# 🍕 TRI FRATELLI - CARDÁPIO DIGITAL
 
 ## 🎯 OBJETIVO  
-Desenvolver a **interface visual e funcional** do sistema de cardápio digital da pizzaria *Tri Fratelli*, proporcionando uma experiência intuitiva e moderna para o usuário final e permitindo o gerenciamento completo dos produtos em tempo real.
+Desenvolver um sistema completo de cardápio digital para a pizzaria *Tri Fratelli*, proporcionando uma experiência moderna e eficiente para gerenciamento e visualização de produtos.
 
-O foco deste módulo foi criar um **frontend totalmente integrado ao backend**, com layout responsivo, design limpo e uma estrutura de componentes reutilizáveis que garantem escalabilidade e manutenção eficiente.
+---
+## 🎨 Layout
+
+A interface apresenta um design simples e elegante, com cores e estilos inspirados na identidade visual da pizzaria Tri Fratelli.
+
+![Tela Inicial](./frontend/assets/home.png)
+![Formulário](./frontend/assets/cadastro.png)
 
 ---
 
 ## 🧩 TECNOLOGIAS UTILIZADAS
 
-### 💻 **Front-end**
+### 💻 Back-end
+![Node.js](https://skillicons.dev/icons?i=nodejs)
+![Express](https://skillicons.dev/icons?i=express)
+![Typescript](https://skillicons.dev/icons?i=typescript)
+![Prisma](https://skillicons.dev/icons?i=prisma)
+![SQLite](https://skillicons.dev/icons?i=sqlite)
+![Docker](https://skillicons.dev/icons?i=docker)
+
+- Node.js – Ambiente de execução JavaScript server-side  
+- Express.js – Framework web para criação da API RESTful  
+- TypeScript – Superset JavaScript com tipagem estática  
+- Prisma ORM – Ferramenta de mapeamento objeto-relacional  
+- SQLite – Banco de dados relacional utilizado no desenvolvimento  
+
+
+### 🖥️ Front-end
 ![React](https://skillicons.dev/icons?i=react)
 ![Typescript](https://skillicons.dev/icons?i=typescript)
 ![Vite](https://skillicons.dev/icons?i=vite)
 ![Css3](https://skillicons.dev/icons?i=css)
 ![Axios](https://skillicons.dev/icons?i=axios)
 
-- **React.js** – Biblioteca para criação da interface do usuário  
-- **TypeScript** – Tipagem estática e maior previsibilidade no código  
-- **Vite** – Build tool moderna para desenvolvimento rápido  
-- **Axios** – Cliente HTTP para comunicação com a API do backend  
-- **CSS3** – Estilização moderna, responsiva e alinhada à identidade visual da marca  
+- React – Biblioteca para construção de interfaces interativas  
+- TypeScript – Tipagem estática e maior segurança no código  
+- Vite – Ferramenta de build e desenvolvimento otimizada  
+- Axios – Cliente HTTP para integração com a API  
+- CSS3 – Estilização moderna e responsiva  
+
+
+### 🗄️ Banco de Dados
+![SQLite](https://skillicons.dev/icons?i=sqlite)
+![Prisma](https://skillicons.dev/icons?i=prisma)
+
+- SQLite – Banco de dados relacional embutido  
+- Prisma ORM – Interface para operações e modelagem do banco  
+
+
+### 🔐 Criptografia
+- dotenv – Gerenciamento de variáveis de ambiente e credenciais  
+
+
+### 🐳 Containerização
+![Docker](https://skillicons.dev/icons?i=docker)
+- Docker – Containerização da aplicação para ambiente isolado  
+- Dockerfile – Configuração de ambiente e dependências  
+
+
+### 🤖 Inteligência Artificial
+- Planejada para futuras versões (recomendações automáticas de pizzas)
 
 ---
 
-## ⚙️ FUNCIONALIDADES IMPLEMENTADAS
+## 🧱 ARQUITETURA DA APLICAÇÃO
 
-### 🧠 Estrutura e Lógica
-- Criação de toda a **estrutura do Frontend** do projeto em React + TypeScript  
-- Implementação da **integração completa com o backend** via API RESTful  
-- Utilização de **hooks** e componentes funcionais para controle de estado  
-- Implementação de **componentização modular** (FoodForm, FoodCard, etc.)  
-- Tratamento de erros e feedback visual ao usuário (mensagens de sucesso e falha)
+### 🧩 Backend Architecture
+```
+backend/
+├── prisma/           # Schema e migrações do banco
+├── src/
+│   ├── controllers/   # Lógica das rotas
+│   ├── routes/        # Definição de endpoints
+│   ├── services/      # Regras de negócio
+│   └── api/           # Configurações da API
+```
 
----
-
-### 💅 Design e Interface
-- Desenvolvimento de um **layout inspirado em cardápios reais de pizzarias**  
-- Definição e aplicação de uma **paleta de cores personalizada**, com tons terrosos e dourados (inspirados na marca Tri Fratelli)  
-- Responsividade total para uso em **desktop, tablets e smartphones**  
-- Estilização refinada através de **CSS customizado e variáveis globais**  
-- Exibição de produtos em **cards visuais**, com imagem, nome e preço  
-
----
-
-### 🔗 Integração com o Back-end
-- Consumo direto das rotas `/api/foods` via Axios  
-- Sincronização em tempo real dos cadastros e exclusões realizadas no backend  
-- Atualização automática da listagem após cada ação do usuário  
-- Implementação do arquivo `foodApi.ts` para centralizar as chamadas de API  
-
----
-
-## 🧠 ARQUITETURA DO FRONTEND
+### 💻 Frontend Architecture
 ```
 frontend/
 ├── src/
-│   ├── api/
-│   │   └── foodApi.ts        # Comunicação com o backend
-│   ├── components/
-│   │   ├── FoodForm.tsx      # Formulário de cadastro
-│   │   └── FoodCard.tsx      # Exibição dos produtos
-│   ├── styles/
-│   │   └── App.css           # Estilo geral e paleta de cores
-│   ├── App.tsx               # Estrutura principal da aplicação
-│   └── index.tsx             # Ponto de entrada
-├── package.json
-├── tsconfig.json
-└── README.md
+│   ├── components/   # Componentes reutilizáveis
+│   ├── api/          # Cliente HTTP
+│   ├── types/        # Definições TypeScript
+│   └── styles/       # Estilos CSS
 ```
 
 ---
 
-## 🧾 FUNCIONALIDADES DO FRONTEND
+## 👥 CONTRIBUIÇÕES POR MEMBRO
 
-✅ **Listagem de produtos** – Exibição automática dos itens cadastrados  
-✅ **Cadastro de novos produtos** – Formulário dinâmico com validação  
-✅ **Exclusão imediata** – Remoção de produtos com atualização instantânea  
-✅ **Busca inteligente** – Filtro de produtos por nome  
-✅ **Feedback visual** – Mensagens de sucesso e erro em tempo real  
-✅ **Design responsivo** – Layout ajustável em qualquer tela  
+### 👨‍💻 João Pedro Guinati
+- Refatoração completa do backend de Java para Node.js/TypeScript  
+- Estruturação e otimização do projeto backend  
+- Implementação do Express.js com TypeScript  
+- Configuração do Prisma ORM com SQLite  
+- Containerização com Docker  
+- Ajustes visuais e de integração no frontend  
+
+### 👨‍💻 Mateus dos Santos Moreira
+- Desenvolvimento inicial do backend em Java  
+- Contribuição acadêmica na estrutura base do projeto  
+- Documentação dos requisitos e funcionalidades  
+
+### 👨‍💻 Igor Takagui Reis
+- Desenvolvimento completo do frontend em React/TypeScript  
+- Design e implementação da interface do usuário  
+- Integração com a API do backend  
+- Componentização e estrutura modular  
+- Estilização responsiva com CSS  
 
 ---
 
-## 🚀 COMO EXECUTAR
+## ⚙️ FUNCIONALIDADES
 
-### 🧱 Pré-requisitos
-- Node.js (versão 18 ou superior)  
+### 🧩 Backend API
+✅ CRUD Completo – Create, Read, Update, Delete de alimentos  
+✅ Endpoints RESTful – API padronizada seguindo boas práticas  
+✅ Validação de Dados – Tipagem e checagem via TypeScript  
+✅ Persistência – Armazenamento em SQLite com Prisma  
+✅ Containerização – Deploy consistente com Docker  
+
+### 💻 Frontend Interface
+✅ Listagem Dinâmica – Exibição em tempo real dos produtos  
+✅ Formulário de Cadastro – Interface intuitiva e validada  
+✅ Exclusão Instantânea – Remoção imediata dos itens  
+✅ Design Responsivo – Interface adaptável para todos os dispositivos  
+
+---
+
+## 🚀 INSTALAÇÃO E EXECUÇÃO
+
+### 📦 Pré-requisitos
+- Node.js 18+  
 - npm ou yarn  
-- Backend em execução (porta padrão: 5000)
+- Docker (opcional)
 
-### 💻 Passos
+### 🔧 Backend
 ```bash
-# Clonar o repositório
-git clone https://github.com/IgorTakagui/Project.git
-cd frontend
-
-# Instalar dependências
+cd backend
 npm install
-
-# Executar o servidor de desenvolvimento
+cp .env.example .env
+npx prisma migrate dev
 npm run dev
 ```
 
-A aplicação estará disponível em:  
-👉 **http://localhost:3000**
+### 💻 Frontend
+```bash
+cd frontend
+npm install
+cp .env.example .env
+npm start
+```
+
+A aplicação estará disponível em:  `http://localhost:3000`
 
 ---
 
-## 🌐 Integração com o Projeto Fullstack
-O frontend desenvolvido por Igor Takagui Reis se conecta diretamente ao backend criado por João Pedro Guinati e Mateus Moreira.  
-O fluxo de dados segue o modelo:
-
-`Usuário → Frontend (React) → API REST (Node.js + Express) → Banco SQLite (Prisma ORM)`
-
-Essa integração garante que todo cadastro, exclusão ou consulta feita na interface seja refletida instantaneamente no banco de dados do sistema.
-
----
-
-## 🧠 FUTURAS MELHORIAS
-- Implementação do sistema de **carrinho de compras**  
-- Adição de **autenticação JWT** para controle de acesso  
-- Filtros por **categoria, preço e tipo de pizza**  
-- Deploy completo via **Docker e Render**
-
+## 🌐 ENDPOINTS DA API
+````
+| Método | Rota             | Descrição                |
+|--------|------------------|--------------------------|
+| GET    |   /api/foods     | Lista todos os alimentos |
+| POST   |   /api/foods     | Cria um novo alimento    |
+| DELETE |   /api/foods/:id | Remove alimento por ID   |
+````
 ---
 
 ## 📄 LICENÇA
-Projeto desenvolvido para fins acadêmicos na disciplina de **Desenvolvimento Web II – UNIFACEF (2025)**.  
-Todos os direitos reservados ao grupo *Tri Fratelli*.
+Projeto acadêmico desenvolvido para a disciplina de **Desenvolvimento Web II – UNIFACEF**.  
+Livre para uso educacional e estudos.
 
 ---
 
-### 👨‍🏫 Desenvolvido por:
-**Igor Takagui Reis**  
+## 👨‍🏫 DESENVOLVIDO POR:
+João Pedro Guinati, Mateus dos Santos Moreira e Igor Takagui Reis
+
 📍 *UNIFACEF – Engenharia de Software*  
-📚 *Disciplina: Desenvolvimento Web II*  
-📧 igor.takagui.reis@example.com  
+
+📚 *Disciplina: Desenvolvimento Web II*
