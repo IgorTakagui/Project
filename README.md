@@ -1,23 +1,109 @@
-Tri Fratelli – Frontend do Cardápio
-Autor: Igor Takagui Reis
+🍕 Tri Fratelli Frontend
 
-Este repositório contém a parte frontend do projeto Tri Fratelli, desenvolvido em grupo, com o objetivo de criar o sistema de cardápio digital da pizzaria.
-Objetivo do código
-O código que desenvolvi tem como função principal criar a interface visual que permite o cadastro, listagem e exclusão de produtos (pizzas) no cardápio. A aplicação se conecta ao back-end do grupo, consumindo a API para enviar e receber os dados de cada item cadastrado.
-Minhas principais entregas
-•	Criação do formulário de cadastro de produtos com validações (nome, preço e imagem).
-•	Implementação da listagem de produtos, exibindo nome, preço e imagem.
-•	Inclusão de busca e ordenação dos itens.
-•	Implementação do sistema de remoção dos produtos da lista.
-•	Adição de mensagens de sucesso e erro, além de estados de carregamento (skeleton).
-•	Criação da camada de comunicação com a API (foodApi.ts) para integração com o back-end.
-•	Aplicação do estilo visual do cardápio com base na identidade da marca (cores, tipografia e estrutura).
-•	Organização dos arquivos e componentes do projeto em uma estrutura limpa e reutilizável.
-Integração no projeto em grupo
-Essa parte do código será integrada diretamente com o back-end desenvolvido pelos demais integrantes, responsável por armazenar os produtos no banco de dados. O meu código é o que envia, recebe e exibe os dados do cardápio para o usuário final, tornando possível visualizar o funcionamento completo do sistema.
-Tecnologias utilizadas
-•	React + TypeScript
-•	CSS personalizado para responsividade
-•	Fetch API para integração com o back-end
-Resumo
-Minha contribuição no projeto foi a criação da interface funcional e visual do cardápio, conectando-a à API do grupo e garantindo que os cadastros, listagens e exclusões funcionem corretamente, representando o papel principal do frontend dentro da aplicação.
+Autor: Igor Takagui Reis
+Disciplina: Desenvolvimento Web II – UNIFACEF
+
+📘 Descrição do Projeto
+
+Este repositório contém o módulo Frontend do projeto Tri Fratelli, desenvolvido em grupo como parte da disciplina de Desenvolvimento Web II da UNIFACEF.
+O Frontend é responsável por toda a interface gráfica e interação do usuário, sendo a camada que consome as APIs do Backend para exibir e manipular os dados do cardápio digital da pizzaria.
+
+A aplicação foi desenvolvida em React com TypeScript, garantindo uma estrutura modular, de fácil manutenção e visual profissional inspirado em cardápios digitais modernos.
+
+🎯 Objetivo do Código-Fonte
+
+O objetivo deste módulo é oferecer uma interface visual dinâmica e funcional que se comunique com o Backend, permitindo o gerenciamento completo dos produtos cadastrados (pizzas, preços e imagens).
+
+Principais objetivos do código:
+
+Criar um layout limpo, moderno e responsivo para o cardápio digital.
+
+Consumir a API RESTful do Backend via requisições HTTP (GET, POST e DELETE).
+
+Exibir de forma clara os produtos cadastrados, com nome, preço e imagem.
+
+Permitir o cadastro de novos itens de forma intuitiva.
+
+Aplicar feedbacks visuais (carregando, sucesso, erro).
+
+🧠 Integração com o Projeto Final em Grupo
+
+O Frontend é a camada que conecta o usuário final com o sistema.
+Enquanto o Backend (criado pelos colegas Mateus e João Pedro) gerencia os dados no banco e fornece a API, o Frontend consome essas rotas para exibir e manipular as informações em tempo real.
+
+Fluxo de integração:
+
+O usuário cadastra uma pizza no formulário.
+
+O Frontend envia os dados via POST para o Backend.
+
+O Backend grava as informações no banco (SQLite via Prisma).
+
+O Frontend atualiza automaticamente a listagem exibindo o novo item.
+
+Assim, o Frontend atua como a camada de apresentação e interação do sistema.
+
+⚙️ Tecnologias Utilizadas
+
+React.js – Biblioteca principal da interface
+
+TypeScript – Tipagem estática e melhor manutenção do código
+
+Axios / Fetch API – Comunicação com o Backend
+
+CSS Modular – Personalização visual e responsividade
+
+Node.js + npm – Ambiente de execução e gerenciamento de dependências
+
+🧩 Estrutura do Projeto
+frontend/
+├── src/
+│   ├── api/
+│   │   └── foodApi.ts
+│   ├── components/
+│   │   ├── FoodForm.tsx
+│   │   └── FoodCard.tsx
+│   ├── App.tsx
+│   ├── index.tsx
+│   └── App.css
+├── public/
+│   └── index.html
+├── package.json
+├── tsconfig.json
+└── README.md
+
+🚀 Como Rodar o Projeto
+🧱 Pré-requisitos
+
+Node.js (versão 18 ou superior)
+
+npm ou yarn
+
+Backend em execução (porta padrão: 5000)
+
+💻 Passos
+# Clonar o repositório
+git clone https://github.com/IgorTakagui/Project.git
+cd frontend
+
+# Instalar dependências
+npm install
+
+# Executar o projeto
+npm start
+
+
+A aplicação estará disponível em:
+👉 http://localhost:3000
+
+🧾 Funcionalidades Principais
+Função	Descrição
+📝 Cadastro de Pizza	Adiciona um novo produto (nome, preço e imagem)
+📋 Listagem de Itens	Exibe todas as pizzas cadastradas
+❌ Exclusão	Remove um item específico
+🔍 Busca e Filtro	Permite localizar rapidamente um produto
+💬 Feedback Visual	Mensagens de erro e sucesso durante o uso
+👨‍💻 Autor
+
+Igor Takagui Reis
+Responsável pelo desenvolvimento do Frontend completo, design da interface, integração com a API e estrutura visual da aplicação.
